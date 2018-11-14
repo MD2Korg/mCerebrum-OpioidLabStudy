@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorbackground"
+    android:orientation="vertical"
+    android:weightSum="1">
+    <!-- work annotation title-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:background="@color/tealsecondary">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Lab Session"
+            android:textColor="@color/fontPrimanry"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.8"
+        android:background="@color/backGroundDark"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <!--select work type  -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.1">
+
+            <com.beardedhen.androidbootstrap.AwesomeTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_weight="0.5"
+                android:textSize="16dp"
+                app:bootstrapBrand="success"
+                app:bootstrapText="Opioid LA" />
+
+
+        </LinearLayout>
+        <!-- list with check box-->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4"
+            android:weightSum="1"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <RadioGroup
+                    android:id="@+id/radio_work_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/radio_baseline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Morphine Sulfates"
+                        android:buttonTint="@color/tealsecondary"
+                        android:textColor="#ffff" />
+
+                    <RadioButton
+                        android:id="@+id/radio_etray_task"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:buttonTint="@color/tealsecondary"
+
+                        android:text="Oxymorphone Hydrochloride"
+                        android:textColor="#ffff"
+                        />
+
+                    <RadioButton
+                        android:id="@+id/radio_typing"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:buttonTint="@color/tealsecondary"
+
+                        android:text="Oxycodone HCl"
+                        android:textColor="#ffff"
+                        />
+
+                    <RadioButton
+                        android:id="@+id/radio_post_typing_qualtrics"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:buttonTint="@color/tealsecondary"
+
+                        android:text="Methadone"
+                        android:textColor="#ffff"
+                        />
+
+                    <RadioButton
+                        android:id="@+id/radio_post_typing_rest"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:buttonTint="@color/tealsecondary"
+
+                        android:text="Fentanyl Patch"
+                        android:textColor="#ffff"
+                        />
+
+                    <RadioButton
+                        android:id="@+id/radio_public_speaking"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:buttonTint="@color/tealsecondary"
+
+                        android:text="Hydromorphone SR"
+                        android:textColor="#ffff"
+                        />
+
+                </RadioGroup>
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.1">
+
+            <com.beardedhen.androidbootstrap.AwesomeTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_weight="0.5"
+                android:textSize="16dp"
+                app:bootstrapBrand="success"
+                app:bootstrapText="Opioid SA" />
+
+
+        </LinearLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4"
+            android:weightSum="1"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <RadioGroup
+                    android:id="@+id/radio_work_type1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/radio_baseline1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Codeine"
+                        android:buttonTint="@color/tealsecondary"
+                        android:textColor="#ffff" />
+
+                    <RadioButton
+                        android:id="@+id/radio_etray_task1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:buttonTint="@color/tealsecondary"
+
+                        android:text="Hydrocodone/paracetamol(acetaminophen)"
+                        android:textColor="#ffff"
+                        />
+
+                    <RadioButton
+                        android:id="@+id/radio_typing1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:buttonTint="@color/tealsecondary"
+
+                        android:text="Nicomorphine"
+                        android:textColor="#ffff"
+                        />
+
+                    <RadioButton
+                        android:id="@+id/radio_post_typing_qualtrics1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:buttonTint="@color/tealsecondary"
+
+                        android:text="Hydromorphone"
+                        android:textColor="#ffff"
+                        />
+
+                    <RadioButton
+                        android:id="@+id/radio_post_typing_rest1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:buttonTint="@color/tealsecondary"
+
+                        android:text="Dihydromorphine"
+                        android:textColor="#ffff"
+                        />
+                    <RadioButton
+                        android:id="@+id/radio_post_typing_rest7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:buttonTint="@color/tealsecondary"
+
+                        android:text="Oxycodone (SA)"
+                        android:textColor="#ffff"
+                        />
+
+                    <RadioButton
+                        android:id="@+id/radio_public_speaking3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:buttonTint="@color/tealsecondary"
+
+                        android:text="Oxycodone/paracetamol(acetaminophen)"
+                        android:textColor="#ffff"
+                        />
+
+
+                    <RadioButton
+                        android:id="@+id/radio_public_speaking4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:buttonTint="@color/tealsecondary"
+
+                        android:text="Oxycodone/aspirin"
+                        android:textColor="#ffff"
+                        />
+
+                    <RadioButton
+                        android:id="@+id/radio_public_speaking5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:buttonTint="@color/tealsecondary"
+
+                        android:text="Oxycodone/ibuprofen"
+                        android:textColor="#ffff"
+                        />
+
+                    <RadioButton
+                        android:id="@+id/radio_public_speaking1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:buttonTint="@color/tealsecondary"
+
+                        android:text="Oxymorphone (SA)"
+                        android:textColor="#ffff"
+                        />
+
+                    <RadioButton
+                        android:id="@+id/radio_public_speaking2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:buttonTint="@color/tealsecondary"
+
+                        android:text="Demerol"
+                        android:textColor="#ffff"
+                        />
+                    <RadioButton
+                        android:id="@+id/radio_public_speaking6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:buttonTint="@color/tealsecondary"
+
+                        android:text="Tramadol"
+                        android:textColor="#ffff"
+                        />
+                </RadioGroup>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+    <!--close button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.1">
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/button_save_medication"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            fancy:fb_borderColor="@color/tealsecondary"
+            fancy:fb_borderWidth="0dp"
+            fancy:fb_defaultColor="@color/backGroundDark"
+            fancy:fb_fontIconResource="&#xf0c7;"
+            fancy:fb_radius="10dp"
+            fancy:fb_text="Save"
+            fancy:fb_textColor="#ff00"
+            fancy:fb_textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorbackground"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.10"
+        android:background="@color/backGroundDark">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:gravity="center"
+            android:text="Blood Pressure"
+            android:textColor="@color/tealsecondary"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:weightSum="1">
+
+        <TextView
+            android:text="SYS:"
+            android:id="@+id/textView_numberpicker_sys"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight=".15"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textColor="@color/tealsecondary"
+            android:gravity="center_vertical|center" />
+
+        <NumberPicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.Picker"
+            android:id="@+id/number_picker_sys"
+            android:layout_weight=".15" />
+
+
+        <TextView
+            android:text="DIA:"
+            android:id="@+id/textView_numberpicker_dia"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight=".15"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textColor="@color/tealsecondary"
+            android:gravity="center_vertical|center" />
+
+        <NumberPicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.Picker"
+            android:id="@+id/number_picker_dia"
+            android:layout_weight=".15" />
+
+
+
+        <TextView
+            android:text="Pulse:"
+            android:id="@+id/textView_numberpicker_pulse"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight=".15"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textColor="@color/tealsecondary"
+            android:gravity="center_vertical|center" />
+
+        <NumberPicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.Picker"
+            android:id="@+id/number_picker_pulse"
+            android:layout_weight=".15" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.06">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_bp"
+        android:paddingLeft="20dp"
+        android:gravity="left"
+        android:textStyle="italic"
+        android:text="Last saved:"
+        android:textColor="@color/grey_500"
+        android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- save button -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.06">
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/button_save_bp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            fancy:fb_borderColor="@color/tealsecondary"
+            fancy:fb_borderWidth="0dp"
+            fancy:fb_defaultColor="@color/backGroundDark"
+            fancy:fb_fontIconResource="&#xf0c7;"
+            fancy:fb_radius="10dp"
+            fancy:fb_text="Save"
+            fancy:fb_textColor="#ff00"
+            fancy:fb_textSize="16sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.06"
+        android:background="@color/backGroundDark">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Pain Measure"
+            android:textColor="@color/tealsecondary"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.35"
+        android:orientation="vertical"
+        android:weightSum="1">
+        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:id="@+id/textView_caption"
+            android:text="Current Pain Level"
+            android:textColor="@color/tealsecondary"
+            android:textSize="12sp" />
+        <com.xw.repo.BubbleSeekBar
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:layout_marginTop="15dp"
+            android:id="@+id/bubbleSeekBarCurrentPain"
+            app:bsb_bubble_color="@color/headerOrange"
+            app:bsb_bubble_text_color="@color/colorPrimaryDark"
+            app:bsb_max="100"
+            app:bsb_min="0"
+            app:bsb_is_float_type="false"
+            app:bsb_progress="0"
+            app:bsb_second_track_color="@color/tealsecondary"
+            app:bsb_section_count="5"
+            app:bsb_section_text_position="bottom_sides"
+            app:bsb_show_progress_in_float="false"
+            app:bsb_touch_to_seek="true"
+            app:bsb_show_section_mark="true"
+            app:bsb_show_section_text="true"
+            app:bsb_show_thumb_text="true"
+            app:bsb_track_color="@color/tealsecondary"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:weightSum="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:gravity="left"
+                android:id="@+id/textView_lower"
+                android:text="Min"
+                android:textColor="#FFFF"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:id="@+id/textView_upper"
+                android:gravity="right"
+                android:text="Max"
+                android:textColor="#FFFF"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:id="@+id/textView_caption2"
+            android:text="Maximum Pain Level"
+            android:textColor="@color/tealsecondary"
+            android:textSize="12sp" />
+        <com.xw.repo.BubbleSeekBar
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:layout_marginTop="15dp"
+            app:bsb_bubble_color="@color/headerOrange"
+            app:bsb_bubble_text_color="@color/colorPrimaryDark"
+            android:id="@+id/bubbleSeekBarMaximumPain"
+            app:bsb_max="100"
+            app:bsb_min="0"
+            app:bsb_progress="0"
+            app:bsb_second_track_color="@color/tealsecondary"
+            app:bsb_section_count="5"
+            app:bsb_section_text_position="bottom_sides"
+            app:bsb_show_progress_in_float="false"
+            app:bsb_touch_to_seek="true"
+            app:bsb_show_section_mark="true"
+            app:bsb_show_section_text="true"
+            app:bsb_show_thumb_text="true"
+            app:bsb_track_color="@color/tealsecondary"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:weightSum="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:gravity="left"
+                android:id="@+id/textView_lower_2nd"
+                android:text="Min"
+                android:textColor="#FFFF"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:id="@+id/textView_upper_2nd"
+                android:gravity="right"
+                android:text="Max"
+                android:textColor="#FFFF"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.06">
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/button_save_pain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            fancy:fb_borderColor="@color/tealsecondary"
+            fancy:fb_borderWidth="0dp"
+            fancy:fb_defaultColor="@color/backGroundDark"
+            fancy:fb_fontIconResource="&#xf0c7;"
+            fancy:fb_radius="10dp"
+            fancy:fb_text="Save"
+            fancy:fb_textColor="#ff00"
+            fancy:fb_textSize="16sp" />
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.10">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/layout_painresult"
+            >
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
