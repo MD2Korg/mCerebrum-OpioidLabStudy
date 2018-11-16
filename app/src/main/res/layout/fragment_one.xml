@@ -5,13 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorbackground"
-    android:orientation="vertical"
-    android:weightSum="1">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.10"
+        android:layout_height="wrap_content"
         android:background="@color/backGroundDark">
         <TextView
             android:layout_width="match_parent"
@@ -22,14 +20,14 @@
             android:text="Blood Pressure"
             android:textColor="@color/tealsecondary"
             android:textSize="18sp" />
-
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.2"
+        android:layout_height="120dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:weightSum="1">
 
         <TextView
@@ -94,35 +92,34 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_weight="0.06">
+        android:layout_marginTop="5dp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView_bp"
-        android:paddingLeft="20dp"
         android:gravity="left"
-        android:textStyle="italic"
         android:text="Last saved:"
         android:textColor="@color/grey_500"
-        android:textSize="12sp" />
+        android:textSize="14sp" />
     </LinearLayout>
 
     <!-- save button -->
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_weight="0.06">
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="100dp"
+        android:paddingRight="100dp">
 
         <mehdi.sakout.fancybuttons.FancyButton
             android:id="@+id/button_save_bp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             fancy:fb_borderColor="@color/tealsecondary"
             fancy:fb_borderWidth="0dp"
             fancy:fb_defaultColor="@color/backGroundDark"
@@ -134,13 +131,13 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.06"
+        android:layout_height="wrap_content"
         android:background="@color/backGroundDark">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
             android:gravity="center"
             android:text="Pain Measure"
             android:textColor="@color/tealsecondary"
@@ -149,15 +146,11 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.35"
-        android:orientation="vertical"
-        android:weightSum="1">
-        />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:id="@+id/textView_caption"
@@ -166,8 +159,9 @@
             android:textSize="12sp" />
         <com.xw.repo.BubbleSeekBar
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:layout_marginTop="15dp"
             android:id="@+id/bubbleSeekBarCurrentPain"
             app:bsb_bubble_color="@color/headerOrange"
@@ -181,46 +175,16 @@
             app:bsb_section_text_position="bottom_sides"
             app:bsb_show_progress_in_float="false"
             app:bsb_touch_to_seek="true"
+            app:bsb_thumb_color="@color/headerOrange"
+            app:bsb_thumb_text_color="@color/headerOrange"
             app:bsb_show_section_mark="true"
             app:bsb_show_section_text="true"
             app:bsb_show_thumb_text="true"
             app:bsb_track_color="@color/tealsecondary"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.3"
-            android:paddingTop="0dp"
-            android:paddingBottom="0dp"
-            android:weightSum="1"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:gravity="left"
-                android:id="@+id/textView_lower"
-                android:text="Min"
-                android:textColor="#FFFF"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:id="@+id/textView_upper"
-                android:gravity="right"
-                android:text="Max"
-                android:textColor="#FFFF"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
+            android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
             android:gravity="center"
             android:id="@+id/textView_caption2"
@@ -229,8 +193,9 @@
             android:textSize="12sp" />
         <com.xw.repo.BubbleSeekBar
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:layout_marginTop="15dp"
             app:bsb_bubble_color="@color/headerOrange"
             app:bsb_bubble_text_color="@color/colorPrimaryDark"
@@ -244,53 +209,28 @@
             app:bsb_show_progress_in_float="false"
             app:bsb_touch_to_seek="true"
             app:bsb_show_section_mark="true"
+            app:bsb_thumb_color="@color/headerOrange"
+            app:bsb_thumb_text_color="@color/headerOrange"
             app:bsb_show_section_text="true"
             app:bsb_show_thumb_text="true"
             app:bsb_track_color="@color/tealsecondary"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.3"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:weightSum="1"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:gravity="left"
-                android:id="@+id/textView_lower_2nd"
-                android:text="Min"
-                android:textColor="#FFFF"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:id="@+id/textView_upper_2nd"
-                android:gravity="right"
-                android:text="Max"
-                android:textColor="#FFFF"
-                android:textSize="12sp" />
-        </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_weight="0.06">
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="100dp"
+        android:paddingRight="100dp">
 
         <mehdi.sakout.fancybuttons.FancyButton
             android:id="@+id/button_save_pain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             fancy:fb_borderColor="@color/tealsecondary"
             fancy:fb_borderWidth="0dp"
             fancy:fb_defaultColor="@color/backGroundDark"
@@ -300,20 +240,20 @@
             fancy:fb_textColor="#ff00"
             fancy:fb_textSize="16sp" />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_weight="0.10">
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:id="@+id/layout_painresult"
-            >
+            android:id="@+id/layout_painresult">
 
         </LinearLayout>
     </ScrollView>
-
+    </LinearLayout>
 </LinearLayout>

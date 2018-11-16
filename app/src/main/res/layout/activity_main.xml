@@ -47,6 +47,7 @@
             android:layout_height="wrap_content"
             android:theme="@style/AppTheme.Picker"
             android:id="@+id/number_picker_sys"
+            android:descendantFocusability="blocksDescendants"
             android:layout_weight=".15" />
 
 
@@ -66,6 +67,7 @@
             android:layout_height="wrap_content"
             android:theme="@style/AppTheme.Picker"
             android:id="@+id/number_picker_dia"
+            android:descendantFocusability="blocksDescendants"
             android:layout_weight=".15" />
 
 
@@ -86,6 +88,7 @@
             android:layout_height="wrap_content"
             android:theme="@style/AppTheme.Picker"
             android:id="@+id/number_picker_pulse"
+            android:descendantFocusability="blocksDescendants"
             android:layout_weight=".15" />
 
 

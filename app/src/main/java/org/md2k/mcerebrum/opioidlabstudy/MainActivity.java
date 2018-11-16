@@ -7,6 +7,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.design.widget.TabLayout;
+import android.widget.Toast;
+
+import org.md2k.datakitapi.DataKitAPI;
+import org.md2k.datakitapi.exception.DataKitException;
+import org.md2k.datakitapi.messagehandler.OnConnectionListener;
+import org.md2k.mcerebrum.commons.permission.PermissionInfo;
+import org.md2k.mcerebrum.commons.permission.ResultCallback;
 
 public class MainActivity extends AppCompatActivity {
     private TabAdapter adapter;
@@ -24,6 +31,26 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(Tab1Fragment.newInstance("Post"), "Post");
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
+        PermissionInfo permissionInfo = new PermissionInfo();
+        permissionInfo.getPermissions(this, new ResultCallback<Boolean>() {
+            @Override
+            public void onResult(Boolean result) {
+                if (!result) {
+                    Toast.makeText(getApplicationContext(), "!PERMISSION DENIED !!! Could not continue...", Toast.LENGTH_SHORT).show();
+                    finish();
+                } else {
+                }
+            }
+        });
+        try {
+            DataKitAPI.getInstance(this).connect(new OnConnectionListener() {
+                @Override
+                public void onConnected() {
+
+                }
+            });
+        } catch (DataKitException e) {
+        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -39,12 +66,19 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, ActivitySettings.class);
                 startActivity(intent);
                 return true;
-//            case R.id.menu_clear:
-//                MySharedPreference.clear(this);
-////                Toast.makeText(getApplicationContext(),"Item 2 Selected",Toast.LENGTH_LONG).show();
-//                return true;
+            case R.id.menu_clear:
+                MySharedPreference.clear(this);
+                viewPager.getAdapter().notifyDataSetChanged();
+
+//                Toast.makeText(getApplicationContext(),"Item 2 Selected",Toast.LENGTH_LONG).show();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+    @Override
+    public void onDestroy(){
+        DataKitAPI.getInstance(this).disconnect();
+        super.onDestroy();
     }
 }

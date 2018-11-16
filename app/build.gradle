@@ -1,23 +1,45 @@
+version = '2.0.0-RC1'
+apply from: 'versioning.gradle'
+
 apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "org.md2k.mcerebrum.labstudy"
+        applicationId "org.md2k.mcerebrum.opioidlabstudy"
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        versionCode buildVersionCode()
+        versionName version
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    signingConfigs {
+        release {
+        }
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "opioidlabstudy${variant.versionName}.apk"
+                }
+            }
+
+//            applicationVariants.all { variant ->
+//                variant.outputs.each { output ->
+//                    outputFileName = new File(output.outputFile.parent, output.outputFile.name.replace("-release", "${variant.versionName}"))
+//                }
+//            }
         }
     }
 }
-
+configurations.all {
+    exclude group: 'com.android.support', module: 'support-v13'
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:27.1.1'
@@ -25,6 +47,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    compile project(':datakitapi')
+    compile project(':core')
+    compile project(':commons')
+
     implementation 'com.mikepenz:fontawesome-typeface:4.7.0.0@aar'
     implementation 'com.beardedhen:androidbootstrap:2.3.2'
     implementation 'com.github.medyo:fancybuttons:1.9.0'
