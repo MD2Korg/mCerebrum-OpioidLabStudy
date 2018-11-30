@@ -56,7 +56,7 @@ public class EMAManager {
             if(start.get(i).getQuestion_text().startsWith("How many pills of") && start.get(i).getQuestion_text().endsWith("did you take?")) {
                 start.get(i).setCondition(defaultCondition);
                 for (int j = 0; j < medications.size(); j++) {
-                    if (start.get(i).getQuestion_text().contains(medications.get(j))) {
+                    if (start.get(i).getQuestion_text().contains("<i>"+medications.get(j)+"</i>")) {
                         start.get(i).setCondition(condition);
                     }
                 }

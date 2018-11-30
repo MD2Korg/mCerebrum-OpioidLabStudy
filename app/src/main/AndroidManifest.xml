@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.md2k.mcerebrum.opioidlabstudy">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
@@ -22,8 +23,10 @@
         <activity
             android:name=".ActivitySettings"
             android:exported="true" />
-        <activity android:name=".dialog.ActivityDialogPain"
-            android:exported="true"></activity>
+        <activity
+            android:name=".dialog.ActivityDialogPain"
+            android:exported="true" />
+        <activity android:name=".ActivityBloodPressure"></activity>
     </application>
 
 </manifest>

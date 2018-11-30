@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorbackground"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/backGroundDark">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:gravity="center"
+            android:text="Blood Pressure"
+            android:textColor="@color/tealsecondary"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:weightSum="1">
+
+        <TextView
+            android:text="SYS:"
+            android:id="@+id/textView_numberpicker_sys"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight=".15"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textColor="@color/tealsecondary"
+            android:gravity="center_vertical|center" />
+
+        <NumberPicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.Picker"
+            android:id="@+id/number_picker_sys"
+            android:layout_weight=".15" />
+
+
+        <TextView
+            android:text="DIA:"
+            android:id="@+id/textView_numberpicker_dia"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight=".15"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textColor="@color/tealsecondary"
+            android:gravity="center_vertical|center" />
+
+        <NumberPicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.Picker"
+            android:id="@+id/number_picker_dia"
+            android:layout_weight=".15" />
+
+
+
+        <TextView
+            android:text="Pulse:"
+            android:id="@+id/textView_numberpicker_pulse"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight=".15"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textColor="@color/tealsecondary"
+            android:gravity="center_vertical|center" />
+
+        <NumberPicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.Picker"
+            android:id="@+id/number_picker_pulse"
+            android:layout_weight=".15" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_bp"
+            android:gravity="left"
+            android:text="Last saved:"
+            android:textColor="@color/grey_500"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- save button -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="100dp"
+        android:paddingRight="100dp">
+
+        <mehdi.sakout.fancybuttons.FancyButton
+            android:id="@+id/button_save_bp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            fancy:fb_borderColor="@color/tealsecondary"
+            fancy:fb_borderWidth="0dp"
+            fancy:fb_defaultColor="@color/backGroundDark"
+            fancy:fb_fontIconResource="&#xf0c7;"
+            fancy:fb_radius="10dp"
+            fancy:fb_text="Save"
+            fancy:fb_textColor="#ff00"
+            fancy:fb_textSize="16sp" />
+    </LinearLayout>
+</LinearLayout>
