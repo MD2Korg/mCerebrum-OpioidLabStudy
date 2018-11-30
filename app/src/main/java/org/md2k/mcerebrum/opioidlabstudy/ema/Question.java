@@ -144,5 +144,9 @@ public class Question{
     public ArrayList<String> getResponse_option() {
         return response_option;
     }
+
+    public void setCondition(ArrayList<String> condition) {
+        this.condition = condition;
+    }
 }
 

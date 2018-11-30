@@ -35,33 +35,35 @@ import java.util.ArrayList;
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 public class EMAManager {
-    private static final String evening_diary="evening_diary";
-    private static final String event_contingent_entry="event_contingent_entry";
-    private static final String morning_diary="morning_diary";
-    private static final String random_prompt="random_prompt";
-    private static final String medication="medication";
+    private static final String evening_diary="evening_diary.json";
+    private static final String event_contingent_entry="event_contingent_entry.json";
+    private static final String morning_diary="morning_diary.json";
+    private static final String random_prompt="random_prompt.json";
     public static void create(Context context, ArrayList<String> medications){
-        create(context, medications, evening_diary);
-        create(context, medications, event_contingent_entry);
-        create(context, medications, morning_diary);
-        create(context, medications, random_prompt);
+        ArrayList<String> conditionRandom = new ArrayList<>();conditionRandom.add("4:Yes");
+        ArrayList<String> conditionEvening = new ArrayList<>();conditionEvening.add("21:Yes");
+        ArrayList<String> conditionMorning = new ArrayList<>();conditionMorning.add("11:Yes");
+        create(context, medications, evening_diary, conditionEvening);
+        create(context, medications, morning_diary, conditionMorning);
+        create(context, medications, random_prompt, conditionRandom);
+        create(context, medications, event_contingent_entry, null);
     }
-    private static void create(Context context, ArrayList<String> medications, String filePrefix){
-        ArrayList<Question> start = readQuestion(context, filePrefix+"_start.json");
-        ArrayList<Question> end = readQuestion(context, filePrefix+"_end.json");
-        Question med = readQuestion(context, medication+".json").get(0);
-        for(int i = 0;i<medications.size();i++){
-            String qText = med.getQuestion_text().replace("<OPIOID>", medications.get(i));
-            Question q = new Question(start.size(), qText, med.getQuestion_type(), med.getResponse_option(), null);
-            start.add(q);
-        }
-        for(int i =0;i<end.size();i++){
-            Question eQ = end.get(i);
-            eQ.setQuestion_id(start.size());
-            start.add(eQ);
+    private static void create(Context context, ArrayList<String> medications, String fileName, ArrayList<String> condition){
+        ArrayList<String> defaultCondition = new ArrayList<>();
+        defaultCondition.add("0:null");
+        ArrayList<Question> start = readQuestion(context, fileName);
+        for(int i =0;i<start.size();i++){
+            if(start.get(i).getQuestion_text().startsWith("How many pills of") && start.get(i).getQuestion_text().endsWith("did you take?")) {
+                start.get(i).setCondition(defaultCondition);
+                for (int j = 0; j < medications.size(); j++) {
+                    if (start.get(i).getQuestion_text().contains(medications.get(j))) {
+                        start.get(i).setCondition(condition);
+                    }
+                }
+            }
         }
         try {
-            Storage.writeJsonArray(Constants.CONFIG_DIRECTORY+filePrefix+".json", start);
+            Storage.writeJsonArray(Constants.CONFIG_DIRECTORY+fileName, start);
         } catch (IOException e) {
 
         }
