@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Hopkins Study (Lab)");
         setContentView(R.layout.activity_main_tab);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);

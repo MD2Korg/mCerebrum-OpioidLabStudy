@@ -6,14 +6,17 @@ import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.md2k.datakitapi.DataKitAPI;
 import org.md2k.datakitapi.datatype.DataType;
+import org.md2k.datakitapi.datatype.DataTypeInt;
 import org.md2k.datakitapi.datatype.DataTypeIntArray;
 import org.md2k.datakitapi.exception.DataKitException;
 import org.md2k.datakitapi.messagehandler.OnConnectionListener;
 import org.md2k.datakitapi.source.datasource.DataSourceBuilder;
 import org.md2k.datakitapi.source.datasource.DataSourceClient;
+import org.md2k.datakitapi.source.datasource.DataSourceType;
 import org.md2k.datakitapi.time.DateTime;
 
 import java.util.Date;
@@ -31,12 +34,26 @@ public class ActivityBloodPressure extends AppCompatActivity {
         setSaveButtonBP();
         updateBPText();
         setNumberPickers();
+        String s = "Lab Study ("+title+")";
+        setTitle(s);
+        setCloseButton();
+    }
+    private void setCloseButton(){
+        FancyButton b = findViewById(R.id.button_close_bp);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
     private void setSaveButtonBP(){
         FancyButton b = findViewById(R.id.button_save_bp);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Vibration.vibrate(ActivityBloodPressure.this);
                 int sys = ((NumberPicker)findViewById(R.id.number_picker_sys)).getValue();
                 int dia = ((NumberPicker)findViewById(R.id.number_picker_dia)).getValue();
                 int pulse = ((NumberPicker)findViewById(R.id.number_picker_pulse)).getValue();
@@ -47,9 +64,10 @@ public class ActivityBloodPressure extends AppCompatActivity {
                 updateBPText();
                 long curTime = DateTime.getDateTime();
                 DataTypeIntArray bloodPressure = new DataTypeIntArray(curTime, new int[]{sys, dia});
-                saveToDataKit("BLOOD_PRESSURE", bloodPressure);
-//                DataTypeInt heartRate = new DataTypeInt(curTime, pulse);
-//                saveToDataKit("HEART_RATE", heartRate);
+                saveToDataKit(DataSourceType.BLOOD_PRESSURE, title, bloodPressure);
+                Toast.makeText(ActivityBloodPressure.this, "Blood pressure data saved...",Toast.LENGTH_SHORT).show();
+                DataTypeInt heartRate = new DataTypeInt(curTime, pulse);
+                saveToDataKit("HEART_RATE", title, heartRate);
 
             }
         });
@@ -68,15 +86,14 @@ public class ActivityBloodPressure extends AppCompatActivity {
                 +",  " +MySharedPreference.get(this, title+"_PULSE")+" bpm";
         d.setText(text);
     }
-
-    private void saveToDataKit(final String dataSourceType, final DataType dataType){
+    private void saveToDataKit(final String dataSourceType, final String dataSourceId, final DataType dataType){
         try {
             DataKitAPI.getInstance(this).connect(new OnConnectionListener() {
                 @Override
                 public void onConnected() {
                     DataSourceClient dc = null;
                     try {
-                        dc = DataKitAPI.getInstance(ActivityBloodPressure.this).register(new DataSourceBuilder().setType(dataSourceType));
+                        dc = DataKitAPI.getInstance(ActivityBloodPressure.this).register(new DataSourceBuilder().setType(dataSourceType).setId(dataSourceId));
                         DataKitAPI.getInstance(ActivityBloodPressure.this).insert(dc, dataType);
                     } catch (DataKitException e) {
                         finish();
@@ -88,6 +105,7 @@ public class ActivityBloodPressure extends AppCompatActivity {
         }
 
     }
+
     private void setNumberPickers(){
         NumberPicker np_sys = findViewById(R.id.number_picker_sys);
 
