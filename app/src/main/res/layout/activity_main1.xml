@@ -118,6 +118,17 @@
 
                     android:text="Hydromorphone SR"
                     android:textColor="#ffff" />
+        <CheckBox
+            android:id="@+id/checkbox_19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+
+            android:buttonTint="@color/tealsecondary"
+
+            android:text="Buprenorphine"
+            android:textColor="#ffff" />
 
 
             <com.beardedhen.androidbootstrap.AwesomeTextView

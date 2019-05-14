@@ -87,6 +87,7 @@ public class ActivitySettings extends AppCompatActivity {
             c = findViewById(R.id.checkbox_16);if(c.getText().equals(medications.get(i))) c.setChecked(true);
             c = findViewById(R.id.checkbox_17);if(c.getText().equals(medications.get(i))) c.setChecked(true);
             c = findViewById(R.id.checkbox_18);if(c.getText().equals(medications.get(i))) c.setChecked(true);
+            c = findViewById(R.id.checkbox_19);if(c.getText().equals(medications.get(i))) c.setChecked(true);
         }
     }
     private ArrayList<String> getMedication(){
@@ -110,6 +111,7 @@ public class ActivitySettings extends AppCompatActivity {
         c = findViewById(R.id.checkbox_16);if(c.isChecked()) medications.add((String) c.getText());
         c = findViewById(R.id.checkbox_17);if(c.isChecked()) medications.add((String) c.getText());
         c = findViewById(R.id.checkbox_18);if(c.isChecked()) medications.add((String) c.getText());
+        c = findViewById(R.id.checkbox_19);if(c.isChecked()) medications.add((String) c.getText());
         return medications;
     }
     @Override

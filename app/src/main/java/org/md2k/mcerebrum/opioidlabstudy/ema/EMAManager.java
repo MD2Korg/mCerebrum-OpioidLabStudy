@@ -41,7 +41,7 @@ public class EMAManager {
     private static final String random_prompt="random_prompt.json";
     public static void create(Context context, ArrayList<String> medications){
         ArrayList<String> conditionRandom = new ArrayList<>();conditionRandom.add("4:Yes");
-        ArrayList<String> conditionEvening = new ArrayList<>();conditionEvening.add("21:Yes");
+        ArrayList<String> conditionEvening = new ArrayList<>();conditionEvening.add("24:Yes");
         ArrayList<String> conditionMorning = new ArrayList<>();conditionMorning.add("11:Yes");
         create(context, medications, evening_diary, conditionEvening);
         create(context, medications, morning_diary, conditionMorning);
@@ -53,7 +53,7 @@ public class EMAManager {
         defaultCondition.add("0:null");
         ArrayList<Question> start = readQuestion(context, fileName);
         for(int i =0;i<start.size();i++){
-            if(start.get(i).getQuestion_text().startsWith("How many pills of") && start.get(i).getQuestion_text().endsWith("did you take?")) {
+            if(start.get(i).getQuestion_text().startsWith("How many pills of")) {
                 start.get(i).setCondition(defaultCondition);
                 for (int j = 0; j < medications.size(); j++) {
                     if (start.get(i).getQuestion_text().contains("<i>"+medications.get(j)+"</i>")) {

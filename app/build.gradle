@@ -1,4 +1,4 @@
-version = '2.0.0-RC3'
+version = '2.0.0-RC5'
 apply from: 'versioning.gradle'
 
 apply plugin: 'com.android.application'
@@ -51,10 +51,11 @@ dependencies {
     compile project(':core')
     compile project(':commons')
 
-    implementation 'com.mikepenz:fontawesome-typeface:4.7.0.0@aar'
+    implementation 'com.mikepenz:fontawesome-typeface:4.7.0.1@aar'
     implementation 'com.beardedhen:androidbootstrap:2.3.2'
     implementation 'com.github.medyo:fancybuttons:1.9.0'
     implementation 'com.xw.repo:bubbleseekbar:3.16'
     implementation 'com.android.support:design:27.1.0'
+    implementation 'com.afollestad.material-dialogs:core:0.9.4.5'
 
 }
